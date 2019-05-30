@@ -13,8 +13,8 @@ Before you begin, make sure your development environment includes [Node.js](http
 ## Install
 
 ```
-git clone https://github.com/PDFTron/webviewer-react-sample.git
-cd webviewer-react-sample
+git clone https://github.com/PDFTron/webviewer-offline-sample.git
+cd webviewer-offline-sample
 npm install
 ```
 
