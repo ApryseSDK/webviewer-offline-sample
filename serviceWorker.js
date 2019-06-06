@@ -30,7 +30,6 @@ var webViewerFiles = [
   '/public/lib/core/CoreControls.js',
   '/public/lib/core/CoreWorker.js',
   '/public/lib/webviewer.min.js',
-  '/public/license-key.js',
 ];
 
 // The following files are optional
