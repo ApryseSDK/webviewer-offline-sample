@@ -1,7 +1,4 @@
 var viewerElement = document.getElementById('viewer');
-var viewer = new PDFTron.WebViewer({
-  path: '/public/lib'
-}, viewerElement);
 
 var files = [
   '/files/webviewer-demo-annotated.xod',
@@ -9,9 +6,10 @@ var files = [
   '/files/legal-contract.docx',
 ];
 
-viewerElement.addEventListener('ready', function() {
+WebViewer({
+  path: '/public/lib'
+}, viewerElement).then(instance => {
   var store = localforage.createInstance({ name: 'store' });
-  var viewerInstance = viewer.getInstance();
   var documentsDiv = document.getElementById('documents');
 
   files.forEach(function(file) {
@@ -28,7 +26,7 @@ viewerElement.addEventListener('ready', function() {
           .getItem(fileName)
           .then(function(blob) {
             blob.name = fileName;
-            viewerInstance.loadDocument(blob, { filename: fileName });
+            instance.loadDocument(blob, { filename: fileName });
           });
       } else {
         fetch(file)
