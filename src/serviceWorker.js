@@ -1,12 +1,23 @@
-var CACHE_NAME = 'v1';
+var CACHE_NAME = 'v2';
 
 // This file is cached only because we are using this library in this sample
-var localforage = '/localforage.min.js';
+var localforage = '/scripts/localforage.min.js';
 
 var assets = [
   '/',
   '/style.css',
   '/index.js',
+  `/scripts/pwacompat.min.js`,
+  `/manifest.json`,
+  '/images/ic_launcher-48.png',
+  '/images/ic_launcher-72.png',
+  '/images/ic_launcher-96.png',
+  '/images/ic_launcher-144.png',
+  '/images/ic_launcher-192.png',
+  '/images/ic_launcher-512.png',
+  'https://fonts.googleapis.com/css?family=Roboto',
+  'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600',
+  'https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
 ];
 
 // The following files are required to load WebViewer with the default UI
@@ -42,6 +53,8 @@ var PDFWorkerFiles = [
   '/public/lib/core/pdf/lean/PDFNetC.gz.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.js.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.wasm',
+  '/public/lib/core/pdf/SimpleWorker.nmf',
+  '/public/lib/core/pdf/SimpleWorker.pexe',
 ];
 // If you want to load an Office file
 var OfficeWorkerFiles = [

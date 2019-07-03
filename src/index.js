@@ -7,7 +7,8 @@ var files = [
 ];
 
 WebViewer({
-  path: '/public/lib'
+  path: '/public/lib',
+  preloadWorker: 'all',
 }, viewerElement).then(instance => {
   var store = localforage.createInstance({ name: 'store' });
   var documentsDiv = document.getElementById('documents');
@@ -74,3 +75,76 @@ if ('serviceWorker' in navigator) {
 } else {
   alert('This browser does not support service worker.');
 }
+
+
+
+
+
+// WPA app installer
+const Installer = function(root) {
+  let promptEvent;
+
+  const install = function(e) {
+    if(promptEvent) {
+      promptEvent.prompt();
+      promptEvent.userChoice
+        .then(function(choiceResult) {
+          // The user actioned the prompt (good or bad).
+          // good is handled in
+          promptEvent = null;
+          root.classList.remove('available');
+        })
+        .catch(function(installError) {
+          // Boo. update the UI.
+          promptEvent = null;
+          root.classList.remove('available');
+        });
+    }
+  };
+
+  const installed = function(e) {
+    promptEvent = null;
+    // This fires after onbeforinstallprompt OR after manual add to homescreen.
+    root.classList.remove('available');
+  };
+
+  const beforeinstallprompt = function(e) {
+    promptEvent = e;
+    promptEvent.preventDefault();
+    root.classList.add('available');
+    return false;
+  };
+
+  window.addEventListener('beforeinstallprompt', beforeinstallprompt);
+  window.addEventListener('appinstalled', installed);
+
+  root.addEventListener('click', install.bind(this));
+  root.addEventListener('touchend', install.bind(this));
+};
+
+
+window.addEventListener('load', function() {
+  const installEl = document.getElementById('installer');
+  const installer = new Installer(installEl);
+
+  var headerElement = document.getElementsByTagName('header')[0];
+  var asideElement = document.getElementsByTagName('aside')[0];
+
+  var menuButton = document.createElement('div');
+  menuButton.className = 'menu';
+  menuButton.onclick = function() {
+    if (asideElement.style.display === 'block') {
+      asideElement.style.display = 'none';
+    } else {
+      asideElement.style.display = 'block';
+    }
+  };
+
+
+  var div = document.createElement('div');
+  menuButton.appendChild(div);
+  menuButton.appendChild(div.cloneNode());
+  menuButton.appendChild(div.cloneNode());
+
+  headerElement.appendChild(menuButton);
+})
