@@ -23,23 +23,55 @@ var assets = [
 // The following files are required to load WebViewer with the default UI
 var externalFiles = [
   '/public/lib/core/external/decode.min.js',
-  '/public/lib/core/external/rawinflate.js',
   '/public/lib/core/external/pako_inflate.min.js',
-  '/public/lib/core/external/jquery-3.2.1.min.js',
-  '/public/lib/core/external/html2canvas.min.js',
   '/public/lib/core/external/Promise.js',
+  '/public/lib/core/external/model-viewer-1.3.0.min.js',
+  '/public/lib/core/external/model-viewer-legacy-1.3.0.min.js',
+  '/public/lib/core/external/pikaday.css',
+  '/public/lib/core/external/quill.css',
 ];
 
 var uiFiles = [
-  '/public/lib/ui/build/index.html',
-  '/public/lib/ui/build/style.css',
-  '/public/lib/ui/build/webviewer-ui.min.js',
-  '/public/lib/ui/build/i18n/translation-en.json',
+  '/public/lib/ui/index.html',
+  '/public/lib/ui/style.css',
+  '/public/lib/ui/webviewer-ui.min.js',
+  '/public/lib/ui/i18n/translation-en.json',
+  '/public/lib/ui/assets/fonts/Lato-Regular.woff',
+  '/public/lib/ui/assets/fonts/Lato-Bold.woff',
+  '/public/lib/ui/assets/fonts/GreatVibes-Regular.woff2',
 ];
 
 var webViewerFiles = [
-  '/public/lib/core/CoreControls.js',
-  '/public/lib/core/CoreWorker.js',
+  '/public/lib/core/webviewer-core.min.js',
+  '/public/lib/core/Worker.js',
+  '/public/lib/core/contentEdit/InfixServerModule.js',
+  '/public/lib/core/contentEdit/InfixServer.js',
+  '/public/lib/core/contentEdit/InfixServer.mem',
+  '/public/lib/core/contentEdit/InfixServer.wasm',
+  '/public/lib/core/ExternalAnnotationMerger.chunk.js',
+  '/public/lib/core/AndroidContentPartRetriever.chunk.js',
+  '/public/lib/core/ArrayBufferPdfPartRetriever.chunk.js',
+  '/public/lib/core/AzurePartRetriever.chunk.js',
+  '/public/lib/core/ExternalPdfPartRetriever.chunk.js',
+  '/public/lib/core/HttpPartRetriever.chunk.js',
+  '/public/lib/core/IOSPartRetriever.chunk.js',
+  '/public/lib/core/LocalPartRetriever.chunk.js',
+  '/public/lib/core/LocalPdfPartRetriever.chunk.js',
+  '/public/lib/core/StreamingPartRetriever.chunk.js',
+  '/public/lib/core/WebDBPartRetriever.chunk.js',
+  '/public/lib/core/WebViewerServerPartRetriever.chunk.js',
+  '/public/lib/core/WinRTPartRetriever.chunk.js',
+  '/public/lib/core/22.chunk.js',
+  '/public/lib/core/ContentEdit.chunk.js',
+  '/public/lib/core/CORSWorker.js',
+  '/public/lib/core/DecryptWorker.js',
+  '/public/lib/core/PDFInfoVersion1.chunk.js',
+  '/public/lib/core/pikaday.chunk.js',
+  '/public/lib/core/SelectionInfoOld.chunk.js',
+  '/public/lib/core/vendors.ascii85.chunk.js',
+  '/public/lib/core/vendors.ascii85.quill.chunk.js',
+  '/public/lib/core/vendors.pako.chunk.js',
+  '/public/lib/core/vendors.quill.chunk.js',
   '/public/lib/webviewer.min.js',
 ];
 
@@ -53,8 +85,6 @@ var PDFWorkerFiles = [
   '/public/lib/core/pdf/lean/PDFNetC.gz.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.js.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.wasm',
-  '/public/lib/core/pdf/SimpleWorker.nmf',
-  '/public/lib/core/pdf/SimpleWorker.pexe',
 ];
 // If you want to load an Office file
 var OfficeWorkerFiles = [
@@ -63,6 +93,14 @@ var OfficeWorkerFiles = [
   '/public/lib/core/office/WebOfficeWorker.gz.mem',
   '/public/lib/core/office/WebOfficeWorkerWasm.br.js.mem',
   '/public/lib/core/office/WebOfficeWorkerWasm.br.wasm',
+
+
+  
+  '/public/lib/core/legacyOffice/LegacyOfficeWorker.js',
+  '/public/lib/core/legacyOffice/WebB2XOfficeWorker.gz.js.mem',
+  '/public/lib/core/legacyOffice/WebB2XOfficeWorker.gz.mem',
+  '/public/lib/core/legacyOffice/WebB2XOfficeWorkerWasm.br.js.mem',
+  '/public/lib/core/legacyOffice/WebB2XOfficeWorkerWasm.br.wasm',
 ];
 
 self.addEventListener('install', function(event) {
