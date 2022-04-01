@@ -85,6 +85,11 @@ var PDFWorkerFiles = [
   '/public/lib/core/pdf/lean/PDFNetC.gz.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.js.mem',
   '/public/lib/core/pdf/lean/PDFNetCWasm.br.wasm',
+
+  // only used when threaded workers are supported, see https://www.pdftron.com/documentation/web/faq/wasm-threads/ for more information
+  '/public/lib/core/pdf/lean/PDFNetThreadedWasm.worker.js',
+  '/public/lib/core/pdf/lean/PDFNetThreadedWasm.br.js.mem',
+  '/public/lib/core/pdf/lean/PDFNetThreadedWasm.br.wasm',
 ];
 // If you want to load an Office file
 var OfficeWorkerFiles = [
@@ -94,14 +99,29 @@ var OfficeWorkerFiles = [
   '/public/lib/core/office/WebOfficeWorkerWasm.br.js.mem',
   '/public/lib/core/office/WebOfficeWorkerWasm.br.wasm',
 
-
-  
   '/public/lib/core/legacyOffice/LegacyOfficeWorker.js',
   '/public/lib/core/legacyOffice/WebB2XOfficeWorker.gz.js.mem',
   '/public/lib/core/legacyOffice/WebB2XOfficeWorker.gz.mem',
   '/public/lib/core/legacyOffice/WebB2XOfficeWorkerWasm.br.js.mem',
   '/public/lib/core/legacyOffice/WebB2XOfficeWorkerWasm.br.wasm',
 ];
+
+  // If you are using the fullAPI
+  var FullAPIFiles = [
+    '/public/lib/core/pdf/PDFNet.js',
+    '/public/lib/core/pdf/full/PDFNetThreadedWasm.worker.js',
+    '/public/lib/core/pdf/full/PDFNetC.gz.js.mem',
+    '/public/lib/core/pdf/full/PDFNetC.gz.mem',
+    '/public/lib/core/pdf/full/PDFNetCAndroidWasm.br.js.mem',
+    '/public/lib/core/pdf/full/PDFNetCAndroidWasm.br.wasm',
+    '/public/lib/core/pdf/full/PDFNetCAndroidWasm.gz.js.mem',
+    '/public/lib/core/pdf/full/PDFNetCWasm.br.js.mem',
+    '/public/lib/core/pdf/full/PDFNetCWasm.br.wasm',
+    '/public/lib/core/pdf/full/PDFNetCWasm.gz.js.mem',
+    '/public/lib/core/pdf/full/PDFNetThreadedWasm.br.js.mem',
+    '/public/lib/core/pdf/full/PDFNetThreadedWasm.br.wasm',
+    '/public/lib/core/pdf/full/PDFNetC.br.js.mem',
+  ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -114,6 +134,9 @@ self.addEventListener('install', function(event) {
           webViewerFiles,
           PDFWorkerFiles,
           OfficeWorkerFiles,
+          
+          // if you are using the full API, you can also exclue
+          // FullAPIFiles
         ));
       }),
   );
