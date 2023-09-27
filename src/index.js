@@ -27,7 +27,7 @@ WebViewer({
           .getItem(fileName)
           .then(function(blob) {
             blob.name = fileName;
-            instance.loadDocument(blob, { filename: fileName });
+            instance.UI.loadDocument(blob, { filename: fileName });
           });
       } else {
         fetch(file)
