@@ -18,6 +18,14 @@ cd webviewer-offline-sample
 npm install
 ```
 
+## Generate the list of files for service worker
+In the root folder, run the following
+```
+node prepare-serviceworker-list.js
+```
+
+This will generate a json file `service-worker-list.json` that contains the list of files to be cached in service worker.
+
 ## Run
 
 ```
