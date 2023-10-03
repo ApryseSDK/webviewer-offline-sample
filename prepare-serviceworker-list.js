@@ -3,6 +3,7 @@ const path = require('path');
 
 const outputPath = './src/service-worker-list.json';
 
+// According to the need, add or remove directories from this array
 const targetFolders = [
   { name: 'core', path: './public/lib/core/' },
   { name: 'ui', path: './public/lib/ui/', getNestedFiles: true },
@@ -34,7 +35,6 @@ const filesByDirectories = {};
 
 targetFolders.forEach(folderObject => {
   const files = getAllFiles(folderObject);
-
   filesByDirectories[folderObject.name] = files;
 });
 
