@@ -37,15 +37,11 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(async function(cache) {
-        const { core, external, legacyOffice, office, pdf, ui } = await getWorkersList();
+        const { core, ui } = await getWorkersList();
         return cache.addAll([localforage].concat(
           core,
           ui,
-          office,
-          legacyOffice,
-          pdf,
           assets,
-          external,
         ));
       }),
   );

@@ -5,12 +5,8 @@ const outputPath = './src/service-worker-list.json';
 
 // According to the need, add or remove directories from this array
 const targetFolders = [
-  { name: 'core', path: './public/lib/core/' },
+  { name: 'core', path: './public/lib/core/', getNestedFiles: true },
   { name: 'ui', path: './public/lib/ui/', getNestedFiles: true },
-  { name: 'pdf', path: './public/lib/core/pdf', getNestedFiles: true },
-  { name: 'office', path: './public/lib/core/office', getNestedFiles: true },
-  { name: 'legacyOffice', path: './public/lib/core/legacyOffice', getNestedFiles: true },
-  { name: 'external', path: './public/lib/core/external', getNestedFiles: true },
 ];
 
 function getAllFiles(dirObject, fileList = []) {

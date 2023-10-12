@@ -8,6 +8,7 @@ var files = [
 
 WebViewer({
   path: '/public/lib',
+  workerTypes: 'all'
 }, viewerElement).then(instance => {
   var store = localforage.createInstance({ name: 'store' });
   var documentsDiv = document.getElementById('documents');
