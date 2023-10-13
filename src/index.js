@@ -8,7 +8,7 @@ var files = [
 
 WebViewer({
   path: '/public/lib',
-  preloadWorker: 'all',
+  preloadWorker: WebViewer.WorkerTypes.ALL,
 }, viewerElement).then(instance => {
   var store = localforage.createInstance({ name: 'store' });
   var documentsDiv = document.getElementById('documents');
@@ -27,7 +27,7 @@ WebViewer({
           .getItem(fileName)
           .then(function(blob) {
             blob.name = fileName;
-            instance.loadDocument(blob, { filename: fileName });
+            instance.UI.loadDocument(blob, { filename: fileName });
           });
       } else {
         fetch(file)
